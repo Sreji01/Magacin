@@ -12,12 +12,18 @@ public abstract class Artikal {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if(naziv == null) {
+			throw new NullPointerException("Naziv ne sme biti null");
+		}
 		this.naziv = naziv;
 	}
 	public int getSifra() {
 		return sifra;
 	}
-	public void setSifra(int sifra) {
+	public void setSifra(int sifra) throws Exception {
+		if(sifra == 0) {
+			throw new Exception("Sifra ne sme biti 0");
+		}
 		this.sifra = sifra;
 	}
 	public String getOpis() {
@@ -25,6 +31,9 @@ public abstract class Artikal {
 	}
 	public void setOpis(String opis) {
 		this.opis = opis;
+		if(opis == null) {
+			throw new NullPointerException("Opis ne sme biti null");
+		}
 	}
 	public int getKolicina() {
 		return kolicina;
